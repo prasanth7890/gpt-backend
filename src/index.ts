@@ -15,7 +15,7 @@ const genAI = new GoogleGenerativeAI(process.env.API_KEY as string);
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: process.env.ORIGIN,
   credentials: true
 }));
 
