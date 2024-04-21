@@ -23,7 +23,7 @@ app.use(express.json())
 app.use(cookieParser());
 
 app.get('/', (req:any, res:any)=> {
-    res.cookie('mycookie', 'hello world');
+    res.cookie('mycookie', 'hello world', { sameSite: 'none', secure: true});
     res.send('server is working...');
 })
 
