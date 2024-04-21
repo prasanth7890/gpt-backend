@@ -99,7 +99,7 @@ app.post('/signin', async(req: any, res: any)=> {
                         .setExpirationTime('1d')
                         .sign(new TextEncoder().encode(process.env.JWT_SECRET as string));
   
-    res.cookie('gpt-token', token);
+    res.cookie('gpt-token', token, { sameSite: 'none', secure: true});
     res.json({success: true, message: "User logged in succesfully"});
 
   } catch (error: any) {
