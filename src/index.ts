@@ -99,7 +99,7 @@ app.post('/signin', async(req: any, res: any)=> {
                         .setExpirationTime('1d')
                         .sign(new TextEncoder().encode(process.env.JWT_SECRET as string));
 
-    const domain = process.env.ORIGIN?.split('//')[1];  
+    const domain = process.env.ORIGIN?.split('i.')[1];  
       res.cookie('gpt-token', token, { sameSite: 'None', secure: true, domain: domain});
       res.json({success: true, message: "User logged in succesfully"});
 
