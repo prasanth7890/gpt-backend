@@ -100,7 +100,7 @@ app.post('/signin', async(req: any, res: any)=> {
                         .sign(new TextEncoder().encode(process.env.JWT_SECRET as string));
 
     const domain = '.onrender.com';
-      res.cookie('gpt-token', token, { sameSite: 'None', secure: true, domain: domain});
+      res.cookie('gpt-token', token);
       res.json({success: true, message: "User logged in succesfully"});
 
   } catch (error: any) {
